@@ -18,15 +18,19 @@ public class TestExample {
     @BeforeAll
     static void launchBrowser() {
         playwright = Playwright.create();
-        switch (System.getProperty("browser", "chromium")) {
-            case "chromium" -> browser = playwright.chromium().launch();
-            case "firefox" -> browser = playwright.firefox().launch();
-            case "webkit" -> browser = playwright.webkit().launch();
+        // get browser name from system property, default to chrome
+        var browserName = System.getProperty("browser", "chrome");
+        browser = switch (browserName) {
+            case "chrome" -> playwright.chromium().launch(new BrowserType.LaunchOptions()
+                    .setChannel("chrome")
+                    .setHeadless(false));
+            case "msedge" -> playwright.chromium().launch(new BrowserType.LaunchOptions()
+                    .setChannel("msedge")
+                    .setHeadless(false));
+            case "firefox" -> playwright.firefox().launch();
+            case "webkit" -> playwright.webkit().launch();
             default -> throw new IllegalArgumentException("Unexpected browser name");
-        }
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-                .setChannel("chrome")
-                .setHeadless(false));
+        };
     }
 
     @AfterAll
