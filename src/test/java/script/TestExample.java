@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestExample {
     // Shared between all tests in this class.
-    static Playwright playwright;
-    static Browser browser;
+    private static Playwright playwright;
+    private static Browser browser;
 
     // New instance for each test method.
-    BrowserContext context;
-    Page page;
+    private BrowserContext context;
+    private Page page;
 
     @BeforeAll
     static void launchBrowser() {
