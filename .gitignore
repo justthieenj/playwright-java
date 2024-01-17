@@ -1,6 +1,7 @@
 target/
 build/
 .gradle/
+bin/
 
 ### IntelliJ IDEA ###
 .idea

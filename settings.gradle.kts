@@ -3,3 +3,7 @@
  */
 
 rootProject.name = "playwright-java"
+
+dependencyResolutionManagement {
+    defaultLibrariesExtensionName = "libs" // default: libs
+}

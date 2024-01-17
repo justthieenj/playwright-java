@@ -2,11 +2,23 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 
 [versions]
-com-microsoft-playwright-playwright = "1.40.0"
-org-junit-jupiter-junit-jupiter-api = "5.10.1"
-org-junit-jupiter-junit-jupiter-engine = "5.10.1"
+playwright = "1.40.0"
+junit-jupiter = "5.10.1"
+allure = "2.25.0"
+allure-plugin = "2.11.2"
+lombok = "1.18.30"
+cucumber = "7.15.0"
 
 [libraries]
-com-microsoft-playwright-playwright = { module = "com.microsoft.playwright:playwright", version.ref = "com-microsoft-playwright-playwright" }
-org-junit-jupiter-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "org-junit-jupiter-junit-jupiter-api" }
-org-junit-jupiter-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "org-junit-jupiter-junit-jupiter-engine" }
+playwright = { module = "com.microsoft.playwright:playwright", version.ref = "playwright" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+allure-junit5 = { module = "io.qameta.allure:allure-junit5", version.ref = "allure" }
+allure-cucumber7-jvm = { module = "io.qameta.allure:allure-cucumber7-jvm", version.ref = "allure" }
+cucumber-java = { module = "io.cucumber:cucumber-java", version.ref = "cucumber" }
+cucumber-picocontainer = { module = "io.cucumber:cucumber-picocontainer", version.ref = "cucumber" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+[plugins]
+allure = { id = "io.qameta.allure", version.ref = "allure-plugin" }
+allure-adapter = { id = "io.qameta.allure-adapter", version.ref = "allure-plugin" }

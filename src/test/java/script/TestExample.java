@@ -20,11 +20,12 @@ public class TestExample {
         playwright = Playwright.create();
         // get browser name from system property, default to chrome
         var browserName = System.getProperty("browser", "chrome");
+        System.out.println("Browser name: " + browserName);
         browser = switch (browserName) {
             case "chrome" -> playwright.chromium().launch(new BrowserType.LaunchOptions()
                     .setChannel("chrome")
                     .setHeadless(false));
-            case "msedge" -> playwright.chromium().launch(new BrowserType.LaunchOptions()
+            case "msedge", "edge" -> playwright.chromium().launch(new BrowserType.LaunchOptions()
                     .setChannel("msedge")
                     .setHeadless(false));
             case "firefox" -> playwright.firefox().launch();
